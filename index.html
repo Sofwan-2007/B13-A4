@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Application Tracker</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+  <div class="container">
+    <header>
+      <h1>Job Application Tracker</h1>
+    </header>
+
+    <div class="stats">
+      <div class="stat-card">
+        <p>Total</p>
+        <h2 id="total">8</h2>
+      </div>
+      <div class="stat-card">
+        <p>Interview</p>
+        <h2 id="interviewCount" class="text-green">0</h2>
+      </div>
+      <div class="stat-card">
+        <p>Rejected</p>
+        <h2 id="rejectedCount" class="text-red">0</h2>
+      </div>
+    </div>
+
+    <div class="filter-header">
+      <div class="filter-title-row">
+        <h3>Available Jobs</h3>
+        <span class="job-count-text"><span id="jobTotalCount">8</span> jobs</span>
+      </div>
+
+      <div class="tabs">
+        <button onclick="filterJobs('all', this)" class="active">All</button>
+        <button onclick="filterJobs('interview', this)">Interview</button>
+        <button onclick="filterJobs('rejected', this)">Rejected</button>
+      </div>
+    </div>
+
+    <div class="cards" id="jobContainer">
+
+      <div class="card" data-status="pending">
+        <button class="delete-btn" onclick="deleteCard(this)">
+          <i class="fa-solid fa-trash-can"></i>
+        </button>
+        <div class="card-header">
+          <h3>Mobile First Corp</h3>
+          <p class="role">React Native Developer</p>
+        </div>
+        <div class="card-info">
+          <span>Remote</span> • <span>Full-time</span> • <span>$130,000 - $175,000</span>
+        </div>
+        <div class="badge">NOT APPLIED</div>
+        <p class="desc">Build cross-platform mobile applications using React Native. Work on products used by millions.
+        </p>
+        <div class="actions">
+          <button class="btn-int" onclick="setStatus(this,'interview')">INTERVIEW</button>
+          <button class="btn-rej" onclick="setStatus(this,'rejected')">REJECTED</button>
+        </div>
+      </div>
+
+      <div class="card" data-status="pending">
+        <button class="delete-btn" onclick="deleteCard(this)">
+          <i class="fa-solid fa-trash-can"></i>
+        </button>
+        <div class="card-header">
+          <h3>WebFlow Agency</h3>
+          <p class="role">Web Designer & Developer</p>
+        </div>
+        <div class="card-info">
+          <span>Los Angeles, CA</span> • <span>Part-time</span> • <span>$80,000 - $120,000</span>
+        </div>
+        <div class="badge">NOT APPLIED</div>
+        <p class="desc">Create stunning web experiences for high-profile clients using Webflow and GSAP.</p>
+        <div class="actions">
+          <button class="btn-int" onclick="setStatus(this,'interview')">INTERVIEW</button>
+          <button class="btn-rej" onclick="setStatus(this,'rejected')">REJECTED</button>
+        </div>
+      </div>
+
+      <div class="card" data-status="pending">
+        <button class="delete-btn" onclick="deleteCard(this)">
+          <i class="fa-solid fa-trash-can"></i>
+        </button>
+        <div class="card-header">
+          <h3>DataViz Solutions</h3>
+          <p class="role">Data Visualization Specialist</p>
+        </div>
+        <div class="card-info">
+          <span>Boston, MA</span> • <span>Full-time</span> • <span>$125,000 - $165,000</span>
+        </div>
+        <div class="badge">NOT APPLIED</div>
+        <p class="desc">Transform complex data into compelling visual stories using D3.js and Tableau.</p>
+        <div class="actions">
+          <button class="btn-int" onclick="setStatus(this,'interview')">INTERVIEW</button>
+          <button class="btn-rej" onclick="setStatus(this,'rejected')">REJECTED</button>
+        </div>
+      </div>
+
+      <div class="card" data-status="pending">
+        <button class="delete-btn" onclick="deleteCard(this)">
+          <i class="fa-solid fa-trash-can"></i>
+        </button>
+        <div class="card-header">
+          <h3>CloudFirst Inc</h3>
+          <p class="role">Backend Developer (Node.js)</p>
+        </div>
+        <div class="card-info">
+          <span>Seattle, WA</span> • <span>Full-time</span> • <span>$140,000 - $190,000</span>
+        </div>
+        <div class="badge">NOT APPLIED</div>
+        <p class="desc">Design and maintain scalable backend systems and high-performance APIs.</p>
+        <div class="actions">
+          <button class="btn-int" onclick="setStatus(this,'interview')">INTERVIEW</button>
+          <button class="btn-rej" onclick="setStatus(this,'rejected')">REJECTED</button>
+        </div>
+      </div>
+
+      <div class="card" data-status="pending">
+        <button class="delete-btn" onclick="deleteCard(this)">
+          <i class="fa-solid fa-trash-can"></i>
+        </button>
+        <div class="card-header">
+          <h3>Innovation Labs</h3>
+          <p class="role">UI/UX Designer</p>
+        </div>
+        <div class="card-info">
+          <span>Austin, TX</span> • <span>Full-time</span> • <span>$110,000 - $150,000</span>
+        </div>
+        <div class="badge">NOT APPLIED</div>
+        <p class="desc">Create beautiful and user-centered designs for our next-gen SaaS platform.</p>
+        <div class="actions">
+          <button class="btn-int" onclick="setStatus(this,'interview')">INTERVIEW</button>
+          <button class="btn-rej" onclick="setStatus(this,'rejected')">REJECTED</button>
+        </div>
+      </div>
+
+      <div class="card" data-status="pending">
+        <button class="delete-btn" onclick="deleteCard(this)">
+          <i class="fa-solid fa-trash-can"></i>
+        </button>
+        <div class="card-header">
+          <h3>MegaCorp Solutions</h3>
+          <p class="role">JavaScript Engineer</p>
+        </div>
+        <div class="card-info">
+          <span>New York, NY</span> • <span>Full-time</span> • <span>$130,000 - $170,000</span>
+        </div>
+        <div class="badge">NOT APPLIED</div>
+        <p class="desc">Work on large scale enterprise applications with modern JS frameworks.</p>
+        <div class="actions">
+          <button class="btn-int" onclick="setStatus(this,'interview')">INTERVIEW</button>
+          <button class="btn-rej" onclick="setStatus(this,'rejected')">REJECTED</button>
+        </div>
+      </div>
+
+      <div class="card" data-status="pending">
+        <button class="delete-btn" onclick="deleteCard(this)">
+          <i class="fa-solid fa-trash-can"></i>
+        </button>
+        <div class="card-header">
+          <h3>StartupXYZ</h3>
+          <p class="role">Full Stack Engineer</p>
+        </div>
+        <div class="card-info">
+          <span>Remote</span> • <span>Full-time</span> • <span>$120,000 - $160,000</span>
+        </div>
+        <div class="badge">NOT APPLIED</div>
+        <p class="desc">Join our fast-growing startup and work on core platform features using MERN stack.</p>
+        <div class="actions">
+          <button class="btn-int" onclick="setStatus(this,'interview')">INTERVIEW</button>
+          <button class="btn-rej" onclick="setStatus(this,'rejected')">REJECTED</button>
+        </div>
+      </div>
+
+      <div class="card" data-status="pending">
+        <button class="delete-btn" onclick="deleteCard(this)">
+          <i class="fa-solid fa-trash-can"></i>
+        </button>
+        <div class="card-header">
+          <h3>TechCorp Industries</h3>
+          <p class="role">Senior Frontend Developer</p>
+        </div>
+        <div class="card-info">
+          <span>San Francisco, CA</span> • <span>Full-time</span> • <span>$130,000 - $175,000</span>
+        </div>
+        <div class="badge">NOT APPLIED</div>
+        <p class="desc">Lead the frontend development of our consumer-facing web applications using React.</p>
+        <div class="actions">
+          <button class="btn-int" onclick="setStatus(this,'interview')">INTERVIEW</button>
+          <button class="btn-rej" onclick="setStatus(this,'rejected')">REJECTED</button>
+        </div>
+      </div>
+
+    </div>
+
+    <div id="noJobs" class="no-jobs" style="display: none;">
+      <img src="./jobs.png" alt="icon">
+      <h2>No jobs available</h2>
+      <p>Check back soon for new job opportunities</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

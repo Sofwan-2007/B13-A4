@@ -1,0 +1,294 @@
+:root {
+  --primary-color: #003366;
+  --bg-color: #f8fafc;
+  --card-bg: #ffffff;
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --border-color: #e2e8f0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  background-color: var(--bg-color);
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+header h1 {
+  color: var(--primary-color);
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+/* Dashboard */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.stat-card {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.stat-card p {
+  margin: 0;
+  color: var(--text-muted);
+  font-weight: 500;
+  font-size: 14px;
+}
+.stat-card h2 {
+  margin: 10px 0 0;
+  font-size: 28px;
+}
+
+.text-green {
+  color: #10b981;
+}
+.text-red {
+  color: #ef4444;
+}
+
+/* Filter Header */
+.filter-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.job-count-text {
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.tabs {
+  margin-bottom: 25px;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 15px;
+}
+
+.tabs button {
+  padding: 8px 18px;
+  border: 1px solid var(--border-color);
+  background: white;
+  border-radius: 6px;
+  cursor: pointer;
+  color: var(--text-muted);
+  margin-right: 5px;
+  font-weight: 500;
+}
+
+.tabs button.active {
+  background: #4285f4;
+  color: white;
+  border-color: #4285f4;
+}
+
+/* Card */
+.card {
+  background: white;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 25px;
+  margin-bottom: 15px;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.card:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.delete-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: #cbd5e1;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  color: #ef4444;
+}
+
+.card h3 {
+  margin: 0;
+  color: var(--primary-color);
+  font-size: 19px;
+}
+.role {
+  margin: 5px 0;
+  color: #334155;
+  font-size: 15px;
+  font-weight: 500;
+}
+.card-info {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 15px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 5px 12px;
+  font-size: 11px;
+  font-weight: bold;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  background: #f1f5f9;
+  color: #475569;
+  text-transform: uppercase;
+}
+
+.badge-interview {
+  background: #d1fae5;
+  color: #065f46;
+}
+.badge-rejected {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #475569;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 25px;
+}
+
+.btn-int,
+.btn-rej {
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 12px;
+  cursor: pointer;
+  background: white;
+  transition: 0.2s;
+}
+
+.btn-int {
+  border: 1px solid #10b981;
+  color: #10b981;
+}
+.btn-int:hover {
+  background: #10b981;
+  color: white;
+}
+
+.btn-rej {
+  border: 1px solid #ef4444;
+  color: #ef4444;
+}
+.btn-rej:hover {
+  background: #ef4444;
+  color: white;
+}
+
+/* Empty View */
+.no-jobs {
+  text-align: center;
+  padding: 80px 20px;
+  background: white;
+  border-radius: 10px;
+}
+.no-jobs img {
+  width: 70px;
+  margin-bottom: 15px;
+  opacity: 0.5;
+}
+/* --- মোবাইল রেসপনসিভ অংশ --- */
+
+@media (max-width: 768px) {
+  /* ড্যাশবোর্ড কার্ডগুলোকে ১টি কলামে নিয়ে আসা */
+  .stats {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .container {
+    padding: 10px;
+  }
+
+  /* ফিল্টার হেডার (Available Jobs ও সংখ্যা) উপর-নিচে করা */
+  .filter-title-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  /* ট্যাব বাটনগুলো স্ক্রলযোগ্য করা যদি বেশি হয়ে যায় */
+  .tabs {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 10px;
+  }
+
+  .tabs button {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+
+  /* জব কার্ডের ভেতরের কন্টেন্ট অ্যাডজাস্ট করা */
+  .card {
+    padding: 15px;
+  }
+
+  .card-main-content {
+    flex-direction: column; /* প্রোফাইল ছবি ও টেক্সট উপর-নিচে */
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-img {
+    margin-bottom: 10px;
+  }
+
+  /* অ্যাকশন বাটনগুলো মোবাইলে পুরো জায়গা জুড়ে থাকবে */
+  .actions {
+    flex-direction: column;
+  }
+
+  .btn-int,
+  .btn-rej {
+    width: 100%;
+    text-align: center;
+    padding: 12px;
+  }
+
+  /* ডিলিট বাটন মোবাইলে একটু উপরে সেট করা */
+  .delete-btn {
+    top: 10px;
+    right: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 20px;
+  }
+
+  .stat-card h2 {
+    font-size: 22px;
+  }
+}
