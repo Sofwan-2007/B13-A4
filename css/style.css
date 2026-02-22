@@ -292,3 +292,15 @@ header h1 {
     font-size: 22px;
   }
 }
+/* Status Left Border */
+.card {
+  border-left: 5px solid transparent;
+}
+
+.card.interview {
+  border-left: 5px solid #10b981;
+}
+
+.card.rejected {
+  border-left: 5px solid #ef4444;
+}
