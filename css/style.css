@@ -1,3 +1,4 @@
+/* --- Root Variables --- */
 :root {
   --primary-color: #003366;
   --bg-color: #f8fafc;
@@ -7,6 +8,7 @@
   --border-color: #e2e8f0;
 }
 
+/* --- Base Styles --- */
 body {
   font-family: 'Segoe UI', Tahoma, sans-serif;
   background-color: var(--bg-color);
@@ -25,7 +27,7 @@ header h1 {
   margin-bottom: 30px;
 }
 
-/* Dashboard */
+/* --- Dashboard Stats --- */
 .stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -47,6 +49,7 @@ header h1 {
   font-weight: 500;
   font-size: 14px;
 }
+
 .stat-card h2 {
   margin: 10px 0 0;
   font-size: 28px;
@@ -59,7 +62,7 @@ header h1 {
   color: #ef4444;
 }
 
-/* Filter Header */
+/* --- Filter & Tabs --- */
 .filter-title-row {
   display: flex;
   justify-content: space-between;
@@ -95,7 +98,7 @@ header h1 {
   border-color: #4285f4;
 }
 
-/* Card */
+/* --- Job Cards --- */
 .card {
   background: white;
   border: 1px solid var(--border-color);
@@ -104,11 +107,19 @@ header h1 {
   margin-bottom: 15px;
   position: relative;
   transition: all 0.2s ease;
+  border-left: 5px solid transparent; /* Status Left Border Base */
 }
 
 .card:hover {
   border-color: #cbd5e1;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.card.interview {
+  border-left: 5px solid #10b981;
+}
+.card.rejected {
+  border-left: 5px solid #ef4444;
 }
 
 .delete-btn {
@@ -130,12 +141,14 @@ header h1 {
   color: var(--primary-color);
   font-size: 19px;
 }
+
 .role {
   margin: 5px 0;
   color: #334155;
   font-size: 15px;
   font-weight: 500;
 }
+
 .card-info {
   font-size: 13px;
   color: var(--text-muted);
@@ -169,6 +182,7 @@ header h1 {
   color: #475569;
 }
 
+/* --- Actions --- */
 .actions {
   display: flex;
   gap: 10px;
@@ -204,22 +218,22 @@ header h1 {
   color: white;
 }
 
-/* Empty View */
+/* --- Empty View --- */
 .no-jobs {
   text-align: center;
   padding: 80px 20px;
   background: white;
   border-radius: 10px;
 }
+
 .no-jobs img {
   width: 70px;
   margin-bottom: 15px;
   opacity: 0.5;
 }
-/* --- মোবাইল রেসপনসিভ অংশ --- */
 
+/* --- Mobile Responsive --- */
 @media (max-width: 768px) {
-  /* ড্যাশবোর্ড কার্ডগুলোকে ১টি কলামে নিয়ে আসা */
   .stats {
     grid-template-columns: 1fr;
     gap: 10px;
@@ -229,14 +243,12 @@ header h1 {
     padding: 10px;
   }
 
-  /* ফিল্টার হেডার (Available Jobs ও সংখ্যা) উপর-নিচে করা */
   .filter-title-row {
     flex-direction: column;
     align-items: flex-start;
     gap: 5px;
   }
 
-  /* ট্যাব বাটনগুলো স্ক্রলযোগ্য করা যদি বেশি হয়ে যায় */
   .tabs {
     display: flex;
     overflow-x: auto;
@@ -249,13 +261,12 @@ header h1 {
     font-size: 13px;
   }
 
-  /* জব কার্ডের ভেতরের কন্টেন্ট অ্যাডজাস্ট করা */
   .card {
     padding: 15px;
   }
 
   .card-main-content {
-    flex-direction: column; /* প্রোফাইল ছবি ও টেক্সট উপর-নিচে */
+    flex-direction: column;
     align-items: center;
     text-align: center;
   }
@@ -264,7 +275,6 @@ header h1 {
     margin-bottom: 10px;
   }
 
-  /* অ্যাকশন বাটনগুলো মোবাইলে পুরো জায়গা জুড়ে থাকবে */
   .actions {
     flex-direction: column;
   }
@@ -276,7 +286,6 @@ header h1 {
     padding: 12px;
   }
 
-  /* ডিলিট বাটন মোবাইলে একটু উপরে সেট করা */
   .delete-btn {
     top: 10px;
     right: 10px;
@@ -287,20 +296,7 @@ header h1 {
   header h1 {
     font-size: 20px;
   }
-
   .stat-card h2 {
     font-size: 22px;
   }
-}
-/* Status Left Border */
-.card {
-  border-left: 5px solid transparent;
-}
-
-.card.interview {
-  border-left: 5px solid #10b981;
-}
-
-.card.rejected {
-  border-left: 5px solid #ef4444;
 }
